@@ -27,12 +27,17 @@ jobs:
         with:
           path: .buildozer
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}-${{ hashFiles('buildozer.spec') }}
-
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          command: docker run -it -v "$(pwd)":/home/user/hostcwd kivy/buildozer android debug
+          command: buildozer appclean
+          buildozer_version: master
+      - name: Build with Buildozer
+        uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
+        with:
+          command: buildozer android debug
           buildozer_version: master
 
       - name: Upload artifacts
