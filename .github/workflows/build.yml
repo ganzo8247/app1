@@ -27,9 +27,9 @@ jobs:
         with:
           path: .buildozer
           key: ${{ runner.os }}-${{ steps.get-date.outputs.date }}-${{ hashFiles('buildozer.spec') }}
-      - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
+      - name: clean with Buildozer
+        
+        id: buildozer clean
         with:
           command: buildozer appclean
           buildozer_version: master
