@@ -30,9 +30,10 @@ jobs:
       - name: clean with Buildozer
         
         id: buildozer clean
-        with:
-          command: buildozer appclean
-          buildozer_version: master
+       
+          
+          run: buildozer appclean
+   
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
